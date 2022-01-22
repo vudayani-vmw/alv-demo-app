@@ -8,6 +8,6 @@ metadata:
 spec:
   source:
     git:
-      url: https://github.com/sample-accelerators/alv-demo-app-1
+      url: https://github.com/vudayani-vmw/alv-demo-app
       ref:
         branch: main
