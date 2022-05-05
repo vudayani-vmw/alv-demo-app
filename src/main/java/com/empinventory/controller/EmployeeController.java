@@ -16,14 +16,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.empinventory.model.Employee;
-import com.empinventory.model.EmployeeDto;
+// import com.empinventory.model.EmployeeDto;
 import com.empinventory.service.EmployeeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -90,10 +88,10 @@ public class EmployeeController {
 		return new ResponseEntity<List<Employee>>(employeeService.findByName(name), HttpStatus.OK);
 	}
 
-	@PutMapping
-	public void update(@RequestBody final EmployeeDto employee) {
-		employeeService.update(employee.getId(), employee.getName(), employee.getAge(), employee.getAcctNumber());
-	}
+	// @PutMapping
+	// public void update(@RequestBody final EmployeeDto employee) {
+	// 	employeeService.update(employee.getId(), employee.getName(), employee.getAge(), employee.getAcctNumber());
+	// }
 
 	@DeleteMapping("{id}")
 	public void delete(@PathVariable final Integer id) {
