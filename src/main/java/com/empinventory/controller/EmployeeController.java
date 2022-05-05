@@ -23,17 +23,40 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.empinventory.model.Employee;
+import com.empinventory.model.EmployeeDto;
 import com.empinventory.service.EmployeeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api/employee")
 public class EmployeeController {
+
+	private static Logger log = LoggerFactory.getLogger(EmployeeController.class);
 
 	@Autowired
 	private EmployeeService employeeService;
 	
 	@Autowired
 	ResourceLoader resourceLoader;
+
+	@GetMapping("/debug")
+	public String test1() {
+		log.debug("Debug is working !!!!!!!!!!!!!!!!");
+		return "Debug api";
+	}
+
+	@GetMapping("/debug")
+	public String test2() {
+		log.trace("Trace is working !!!!!!!!!!!!!!!!");
+		return "Trace api";
+	}
+
+	@GetMapping("/error")
+	public String test3() {
+		log.trace("Error is working !!!!!!!!!!!!!!!!");
+		return "Error api";
+	}
 	
 	@PostMapping("upload")
 	public ResponseEntity<String> uploadEmployeeData() {
@@ -68,8 +91,8 @@ public class EmployeeController {
 	}
 
 	@PutMapping
-	public void update(@RequestBody final Employee employee) {
-		employeeService.update(employee.getId(), employee.getName(), employee.getAge());
+	public void update(@RequestBody final EmployeeDto employee) {
+		employeeService.update(employee.getId(), employee.getName(), employee.getAge(), employee.getAcctNumber());
 	}
 
 	@DeleteMapping("{id}")
