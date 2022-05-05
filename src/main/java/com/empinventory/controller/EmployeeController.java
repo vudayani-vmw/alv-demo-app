@@ -41,19 +41,28 @@ public class EmployeeController {
 	@GetMapping("/debug")
 	public String test1() {
 		log.debug("Debug is working !!!!!!!!!!!!!!!!");
+		log.info("Info out of place in debug working !!!!!!!!!!!!!!!!");
 		return "Debug api";
 	}
 
 	@GetMapping("/trace")
 	public String test2() {
 		log.trace("Trace is working !!!!!!!!!!!!!!!!");
+		log.info("Info out of place in trace working !!!!!!!!!!!!!!!!");
 		return "Trace api";
 	}
 
 	@GetMapping("/error")
 	public String test3() {
-		log.trace("Error is working !!!!!!!!!!!!!!!!");
+		log.error("Error is working !!!!!!!!!!!!!!!!");
+		log.info("Info out of place in error working !!!!!!!!!!!!!!!!");
 		return "Error api";
+	}
+
+	@GetMapping("/info")
+	public String test4() {
+		log.info("Info is working !!!!!!!!!!!!!!!!");
+		return "Info api";
 	}
 	
 	@PostMapping("upload")
