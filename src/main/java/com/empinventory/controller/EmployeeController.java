@@ -44,7 +44,7 @@ public class EmployeeController {
 		return "Debug api";
 	}
 
-	@GetMapping("/debug")
+	@GetMapping("/trace")
 	public String test2() {
 		log.trace("Trace is working !!!!!!!!!!!!!!!!");
 		return "Trace api";
